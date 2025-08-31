@@ -7,7 +7,7 @@ public class Produto {
 
     private String id;
     private String nome;
-    private String descrição;
+    private String descricao;
     private Double preco;
 
     //Getters and Setters
@@ -28,11 +28,11 @@ public class Produto {
     }
 
     public String getDescrição() {
-        return descrição;
+        return descricao;
     }
 
     public void setDescrição(String descrição) {
-        this.descrição = descrição;
+        this.descricao = descricao;
     }
 
     public Double getPreco() {
@@ -49,7 +49,7 @@ public class Produto {
         return "Produto{" +
                 "id='" + id + '\'' +
                 ", nome='" + nome + '\'' +
-                ", descrição='" + descrição + '\'' +
+                ", descrição='" + descricao + '\'' +
                 ", preco=" + preco +
                 '}';
     }
