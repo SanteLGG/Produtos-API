@@ -1,12 +1,12 @@
 package io.github.santelgg.produtos_api.model;
 
-    //POJO -> Plain Old Java Object
-    //Classe de negócios
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
+//POJO -> Plain Old Java Object
+//Classe de negócios
 
 @Entity
 @Table(name = "produto")
