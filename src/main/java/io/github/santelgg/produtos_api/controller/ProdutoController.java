@@ -18,7 +18,7 @@ public class ProdutoController {
     @Autowired
     private ProdutosRepository produtosRepository;
 
-    @PostMapping("/cadastro")   //cadastrar produtos
+    @PostMapping("/cadastro")               //cadastrar produtos
     public Produto salvarProduto(@RequestBody Produto produto){
         System.out.println("Produto recebido: " + produto);
 
@@ -29,9 +29,13 @@ public class ProdutoController {
         return produto;
     }
 
-    @GetMapping("/{id}")        //buscar por ID
+    @GetMapping("/{id}")                    //buscar por ID
     public Produto buscarProdutoPorId(@PathVariable String id) {
         return produtosRepository.findById(id).orElse(null);
+    }
+    @DeleteMapping("/deletar/{id}")         //deletar por ID
+    public void deletarProdutoPrId (@PathVariable("id") String id) {
+        produtosRepository.deleteById(id);
     }
 
     //Construtor para o produtosRepository
