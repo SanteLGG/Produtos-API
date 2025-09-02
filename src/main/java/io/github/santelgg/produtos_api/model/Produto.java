@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 //Classe de negócios
 
 @Entity
-@Table(name = "produto")
+@Table(name = "produto",schema = "produtos-api")
 public class Produto {
 
     @Id
@@ -42,11 +42,11 @@ public class Produto {
         this.nome = nome;
     }
 
-    public String getDescrição() {
+    public String getDescricao() {
         return descricao;
     }
 
-    public void setDescrição(String descrição) {
+    public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
@@ -64,7 +64,7 @@ public class Produto {
         return "Produto{" +
                 "id='" + id + '\'' +
                 ", nome='" + nome + '\'' +
-                ", descrição='" + descricao + '\'' +
+                ", descricao='" + descricao + '\'' +
                 ", preco=" + preco +
                 '}';
     }
