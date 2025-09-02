@@ -34,8 +34,14 @@ public class ProdutoController {
         return produtosRepository.findById(id).orElse(null);
     }
     @DeleteMapping("/deletar/{id}")         //deletar por ID
-    public void deletarProdutoPrId (@PathVariable("id") String id) {
+    public void deletarProdutoPorId (@PathVariable("id") String id) {
         produtosRepository.deleteById(id);
+    }
+
+    @PutMapping("/atualizar/{id}")
+    public void atualizarProdutoPorId (@PathVariable("id") String id, @RequestBody Produto produto){
+        produto.setId(id);
+        produtosRepository.save(produto);
     }
 
     //Construtor para o produtosRepository
