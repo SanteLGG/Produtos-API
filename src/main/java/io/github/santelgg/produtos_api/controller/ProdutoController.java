@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -17,7 +18,7 @@ public class ProdutoController {
     @Autowired
     private ProdutosRepository produtosRepository;
 
-    @PostMapping("/cadastro")//cadastrar produtos
+    @PostMapping("/cadastro")   //cadastrar produtos
     public Produto salvarProduto(@RequestBody Produto produto){
         System.out.println("Produto recebido: " + produto);
 
@@ -26,6 +27,11 @@ public class ProdutoController {
 
         produtosRepository.save(produto);
         return produto;
+    }
+
+    @GetMapping("/{id}")        //buscar por ID
+    public Produto buscarProdutoPorId(@PathVariable String id) {
+        return produtosRepository.findById(id).orElse(null);
     }
 
     //Construtor para o produtosRepository
