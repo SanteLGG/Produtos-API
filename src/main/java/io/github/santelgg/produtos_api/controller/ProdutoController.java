@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -42,6 +43,11 @@ public class ProdutoController {
     public void atualizarProdutoPorId (@PathVariable("id") String id, @RequestBody Produto produto){
         produto.setId(id);
         produtosRepository.save(produto);
+    }
+
+    @GetMapping("/busca-por-parametros/")
+    public List<Produto> buscar(@RequestParam ("nome") String nome){
+        return produtosRepository.findByNome(nome);
     }
 
     //Construtor para o produtosRepository
